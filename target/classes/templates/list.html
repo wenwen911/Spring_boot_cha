@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>用户列表</title>
+<!--    <link href="/css/bootstrap.css" rel="stylesheet">-->
+</head>
+<body>
+
+
+<a th:href="@{/insertPagenull}">添加</a>
+<table>
+    <thead>
+    <tr style="text-align:center">
+        <th>编号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>操作</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="list:${list}">
+        <td th:text="${list.id}"></td>
+        <td th:text="${list.name}"></td>
+        <td th:text="${list.age}"></td>
+        <td th:text="${list.sex}"></td>
+        <td>
+            <form th:action="@{/updatePageid}" method="post">
+                <input type="hidden" th:value="${list.id}" name="id">
+<!--                <input type="hidden" name="_method" value="put">-->
+                <input type="submit" value="修改">
+            </form>
+
+            <form th:action="@{/people}" method="post">
+                <input type="hidden" th:value="${list.id}" name="id">
+                <input type="hidden" name="_method" value="delete">
+                <input type="submit" value="删除" class="SC">
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

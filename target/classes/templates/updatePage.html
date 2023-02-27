@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改用户</title>
+</head>
+<body>
+
+<div style="width:800px;height:100%;margin-left:270px;">
+
+    <form action="/people" method="post">
+             <input type="hidden" name="id" th:value="${list.id}">
+        姓名：<input type="text" name="name" th:value="${list.name}">
+        年龄：<input type="text" name="age" th:value="${list.age}">
+        性别：<input type="text" name="sex" th:value="${list.sex}">
+        <input type="hidden" name="_method" value="put">
+        <input type="submit" value="修改">
+    </form>
+</div>
+
+</body>
+</html>
